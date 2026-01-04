@@ -8,10 +8,17 @@ function IngredientsList(props) {
     <section>
       <div className="list">
         <h2>Ingredients on hand:</h2>
-        <ul>
-          <li>{ingredientsListItems}</li>
-        </ul>
+        <ul aria-live="polite">{ingredientsListItems}</ul>
       </div>
+      {props.ingredients.length > 3 && (
+        <div className="recipe">
+          <div className="r">
+            <h3>Ready for a recipe?</h3>
+            <p>Generate a recipe from your list of ingredients.</p>
+          </div>
+          <button onClick={props.getRecipe}>Get a recipe</button>
+        </div>
+      )}
     </section>
   );
 }
